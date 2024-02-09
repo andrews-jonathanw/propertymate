@@ -15,10 +15,13 @@ export default function RootLayout({ children }) {
     <ClerkProvider>
       <html lang="en">
           <body className={inter.className}>
-            <Navbar />
-            {children}
+            <main className="flex flex-col min-h-screen bg-secondary">
+              <Navbar />
+              <section className="flex-grow">
+                {children}
+              </section>
+            </main>
           </body>
-
       </html>
     </ClerkProvider>
   );
