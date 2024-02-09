@@ -1,5 +1,5 @@
 'use client';
-import { UserButton } from "@clerk/nextjs";
+import { useUser } from "../../context/UserContext";
 import Container from "../ui/Container";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -8,7 +8,7 @@ import Button from "../ui/Button";
 
 export default function Navbar() {
   const router = useRouter();
-  const [userType, setUserType] = useState("tenant");
+  const { userType, setUserType } = useUser();
   const [showMenu, setShowMenu] = useState(false);
 
   return (
@@ -20,8 +20,15 @@ export default function Navbar() {
             <div className="font-bold text-xl">PropertyMate</div>
           </div>
           <div className="flex items-center gap-3">
-            <UserButton afterSignOutUrl="/" />
             <div>theme</div>
+            <Button onClick={() => {
+              setUserType("tenant");
+              router.push("/");
+            }}>Tenant View</Button>
+            <Button onClick={() => {
+              setUserType("owner");
+              router.push("/");
+            }}>Owner View</Button>
             <button
               onClick={() => setShowMenu(!showMenu)}
               className="focus:outline-none"
@@ -56,19 +63,25 @@ export default function Navbar() {
           <div className="flex flex-col gap-2 bg-blue-50 mt-2">
             {userType === "tenant" ? (
               <>
-                <Button>Documents</Button>
+                <Button onClick={()=> {
+                  router.push("/tenant/documents");
+                  setShowMenu(false);
+                }}>Documents</Button>
                 <Button>Payments</Button>
                 <Button>Maintenance</Button>
                 <Button>Profile</Button>
-                <Button onClick={() => setUserType("owner")}>Owner View</Button>
+
               </>
             ) : (
               <>
                 <Button>Properties</Button>
-                <Button>Documents</Button>
+                <Button onClick={()=> {
+                  router.push("/owner/documents");
+                  setShowMenu(false);
+                }}>Documents</Button>
                 <Button>Tenants</Button>
                 <Button>Maintenance</Button>
-                <Button onClick={() => setUserType("tenant")}>Tenant View</Button>
+
               </>
             )}
           </div>
@@ -77,4 +90,5 @@ export default function Navbar() {
     </div>
   );
 }
+
 

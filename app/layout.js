@@ -1,9 +1,6 @@
-import { Inter } from "next/font/google";
-import { ClerkProvider } from '@clerk/nextjs';
 import Navbar from "@/components/layout/Navbar";
+import { UserProvider } from "@/context/UserContext";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "PropertyMate",
@@ -12,18 +9,19 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider>
+    <UserProvider>
       <html lang="en">
-          <body className={inter.className}>
-            <main className="flex flex-col min-h-screen bg-secondary">
-              <Navbar />
-              <section className="flex-grow">
-                {children}
-              </section>
-            </main>
-          </body>
+        <body>
+          <main className="flex flex-col min-h-screen bg-secondary">
+            <Navbar />
+            <section className="flex-grow">
+              {children}
+            </section>
+          </main>
+        </body>
       </html>
-    </ClerkProvider>
+    </UserProvider>
   );
 }
+
 
