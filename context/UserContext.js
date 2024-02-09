@@ -6,7 +6,8 @@ const UserContext = createContext();
 
 // Create a provider component
 export const UserProvider = ({ children }) => {
-  const [userType, setUserType] = useState("tenant"); // Default user type
+  const storedUserType = localStorage.getItem("userType"); // Retrieve userType from localStorage
+  const [userType, setUserType] = useState(storedUserType || "tenant"); // Use stored value or default to "tenant"
 
   return (
     <UserContext.Provider value={{ userType, setUserType }}>

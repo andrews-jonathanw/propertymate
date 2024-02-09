@@ -1,4 +1,5 @@
 'use client';
+import { useEffect } from "react";
 import { useUser } from "../../context/UserContext";
 import Container from "../ui/Container";
 import Image from "next/image";
@@ -10,6 +11,11 @@ export default function Navbar() {
   const router = useRouter();
   const { userType, setUserType } = useUser();
   const [showMenu, setShowMenu] = useState(false);
+
+  // Update localStorage when userType changes
+  useEffect(() => {
+    localStorage.setItem("userType", userType);
+  }, [userType]);
 
   return (
     <div className="sticky top-0 border border-b-primary/10 bg-secondary">
@@ -90,5 +96,6 @@ export default function Navbar() {
     </div>
   );
 }
+
 
 
