@@ -93,11 +93,11 @@ export default function Navbar() {
                     setShowMenu(false);
                   }}>Home</Button>
                 <Button>Properties</Button>
+                <Button>Tenants</Button>
                 <Button onClick={()=> {
                   router.push("/owner/documents");
                   setShowMenu(false);
                 }}>Documents</Button>
-                <Button>Tenants</Button>
                 <Button>Maintenance</Button>
 
               </>
