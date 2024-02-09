@@ -22,7 +22,7 @@ export default function Navbar() {
       <Container>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-1" onClick={() => router.push("/")}>
-            <Image src="/logo.svg" alt="logo" width={30} height={30} className="hover:cursor-pointer" />
+            <Image src="/assets/propertyMateLogo.jpeg" alt="logo" width={50} height={50} className="hover:cursor-pointer" />
             <div className="font-bold text-xl">PropertyMate</div>
           </div>
           <div className="flex items-center gap-3">
