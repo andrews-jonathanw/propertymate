@@ -27,14 +27,18 @@ export default function Navbar() {
           </div>
           <div className="flex items-center gap-3">
             <div>theme</div>
-            <Button onClick={() => {
-              setUserType("tenant");
-              router.push("/");
-            }}>Tenant View</Button>
-            <Button onClick={() => {
-              setUserType("owner");
-              router.push("/");
-            }}>Owner View</Button>
+            {userType === "owner" ? (
+              <Button onClick={() => {
+                setUserType("tenant");
+                router.push("/");
+              }}>Tenant View</Button>
+            ) : (
+              <Button onClick={() => {
+                setUserType("owner");
+                router.push("/");
+              }}>Owner View</Button>
+            )}
+
             <button
               onClick={() => setShowMenu(!showMenu)}
               className="focus:outline-none"
