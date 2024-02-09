@@ -74,6 +74,10 @@ export default function Navbar() {
             {userType === "tenant" ? (
               <>
                 <Button onClick={()=> {
+                  router.push("/");
+                  setShowMenu(false);
+                }}>Home</Button>
+                <Button onClick={()=> {
                   router.push("/tenant/documents");
                   setShowMenu(false);
                 }}>Documents</Button>
@@ -84,6 +88,10 @@ export default function Navbar() {
               </>
             ) : (
               <>
+                <Button onClick={()=> {
+                    router.push("/");
+                    setShowMenu(false);
+                  }}>Home</Button>
                 <Button>Properties</Button>
                 <Button onClick={()=> {
                   router.push("/owner/documents");
