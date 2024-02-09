@@ -1,4 +1,5 @@
 import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 import { UserProvider } from "@/context/UserContext";
 import "./globals.css";
 
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
             <section className="flex-grow">
               {children}
             </section>
+            <Footer />
           </main>
         </body>
       </html>
