@@ -1,50 +1,80 @@
-"use client";
-
-import { UserButton, useAuth } from "@clerk/nextjs";
-import  Container from "../ui/Container";
+'use client';
+import { UserButton } from "@clerk/nextjs";
+import Container from "../ui/Container";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
-import  Button  from "../ui/Button";
+import { useState } from "react";
+import Button from "../ui/Button";
 
 export default function Navbar() {
   const router = useRouter();
   const [userType, setUserType] = useState("tenant");
+  const [showMenu, setShowMenu] = useState(false);
 
   return (
     <div className="sticky top-0 border border-b-primary/10 bg-secondary">
       <Container>
-        <div className={`flex items-center gap-1`}>
-          <Image className={`hover:cursor-pointer`} onClick={()=> {
-            router.push("/")
-          }} src="/logo.svg" alt="logo" width={30} height={30}/>
-          <div className="font-bold text-xl">PropertyMate</div>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-1" onClick={() => router.push("/")}>
+            <Image src="/logo.svg" alt="logo" width={30} height={30} className="hover:cursor-pointer" />
+            <div className="font-bold text-xl">PropertyMate</div>
+          </div>
+          <div className="flex items-center gap-3">
+            <UserButton afterSignOutUrl="/" />
+            <div>theme</div>
+            <button
+              onClick={() => setShowMenu(!showMenu)}
+              className="focus:outline-none"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                {showMenu ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16m-7 6h7"
+                  />
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
-        <div className="flex flex-row gap-2">
-          <div>theme</div>
-          {/* <UserButton afterSignOutUrl="/" /> */}
-          {userType === "tenant" && <>
-          <Button>Documents</Button>
-          <Button>Payments</Button>
-          <Button>Maintenance</Button>
-          <Button>Profile</Button>
-          <Button onClick={()=> {
-            setUserType("owner");
-          }}>Owner View</Button>
-          </>}
-
-          {userType === "owner" && <>
-          <Button>Properties</Button>
-          <Button>Documents</Button>
-          <Button>Tentants</Button>
-          <Button>Maintenance</Button>
-          <Button onClick={()=> {
-            setUserType("tenant");
-          }}>Tenant View</Button>
-          </>}
-
-        </div>
+        {showMenu && (
+          <div className="flex flex-col gap-2 bg-blue-50 mt-2">
+            {userType === "tenant" ? (
+              <>
+                <Button>Documents</Button>
+                <Button>Payments</Button>
+                <Button>Maintenance</Button>
+                <Button>Profile</Button>
+                <Button onClick={() => setUserType("owner")}>Owner View</Button>
+              </>
+            ) : (
+              <>
+                <Button>Properties</Button>
+                <Button>Documents</Button>
+                <Button>Tenants</Button>
+                <Button>Maintenance</Button>
+                <Button onClick={() => setUserType("tenant")}>Tenant View</Button>
+              </>
+            )}
+          </div>
+        )}
       </Container>
     </div>
-  )
+  );
 }
+
