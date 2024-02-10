@@ -1,13 +1,19 @@
 'use client';
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 // Create a new context
 const UserContext = createContext();
 
 // Create a provider component
 export const UserProvider = ({ children }) => {
-  const storedUserType = localStorage.getItem("userType"); // Retrieve userType from localStorage
-  const [userType, setUserType] = useState(storedUserType || "tenant"); // Use stored value or default to "tenant"
+  const [userType, setUserType] = useState("tenant");
+
+  useEffect(() => {
+    const storedUserType = localStorage.getItem("userType"); // Retrieve userType from localStorage
+    if (storedUserType) {
+      setUserType(storedUserType) || "tenant";
+    }
+  } , []);
 
   return (
     <UserContext.Provider value={{ userType, setUserType }}>
