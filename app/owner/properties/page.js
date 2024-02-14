@@ -14,7 +14,7 @@ export default function PropertyManagementPage() {
 
   useEffect(() => {
     async function fetchProperties() {
-      console.log('Fetching properties...')
+
       try {
         const response = await fetch('/api/properties', {
           headers: {
@@ -36,21 +36,14 @@ export default function PropertyManagementPage() {
     fetchProperties();
   }, []);
 
-  useEffect(() => {
-    console.log('Properties after update:', properties);
-  }, [properties]);
-
 
   const updateProperties = (updatedProperty) => {
-    console.log('updatedProperty:', updatedProperty);
     setProperties(currentProperties =>
       currentProperties.map(property =>
         property.id === updatedProperty.id ? { ...property, ...updatedProperty } : property
       )
     );
   };
-
-
 
   const filteredProperties = properties.filter(property => {
     const name = property.name.toLowerCase();

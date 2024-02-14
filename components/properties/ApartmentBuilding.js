@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropertyForm from './PropertyForm'; // Import PropertyForm component
 
 const ApartmentBuilding = ({ property, onUpdate }) => {
@@ -52,7 +52,13 @@ const ApartmentBuilding = ({ property, onUpdate }) => {
       {isEditing && (
         <PropertyForm property={property} onSubmit={handleUpdateProperty} onCancel={() => setIsEditing(false)} />
       )}
-      {!isEditing && <button onClick={handleEdit}>Edit Property</button>}
+      {!isEditing && (
+        <div className='relative h-6'>
+          <button className='bottom-0 right-0 absolute' onClick={handleEdit}>
+          ✏️
+          </button>
+        </div>
+      )}
     </div>
   );
 };

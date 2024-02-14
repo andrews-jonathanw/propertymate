@@ -95,8 +95,29 @@ const PropertyForm = ({ property, onSubmit, onCancel }) => {
       {selectedUnitIndex !== null && (
         <div className="mb-4">
           <h3 className="text-lg font-semibold mb-2">Editing Tenant Details (Unit {formData.units[selectedUnitIndex].unitNumber})</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="flex items-center mb-2">
+            <span className="text-gray-700 text-md font-bold mr-2">Occupied:</span>
+            <input
+              type="checkbox"
+              style={{height: '1rem', width: '1rem'}}
+              name="occupied"
+              checked={formData.units[selectedUnitIndex].occupied}
+              onChange={(e) => {
+                const updatedUnits = [...formData.units];
+                updatedUnits[selectedUnitIndex].occupied = e.target.checked;
+                setFormData({
+                  ...formData,
+                  units: updatedUnits,
+                });
+              }}
+              className="mt-1"
+            />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
+
             <label className="block">
+
               <span className="text-gray-700 text-sm font-bold mb-2">Name:</span>
               <input
                 type="text"
