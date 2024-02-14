@@ -45,6 +45,22 @@ export default function PropertyManagementPage() {
     );
   };
 
+
+  // come back and implement modal popup for delete confirmation
+  const deleteProperty = (propertyId) => {
+    const isConfirmed = window.confirm('Are you sure you want to delete this property?');
+    if (isConfirmed) {
+      // User clicked "OK"
+      setProperties(currentProperties =>
+        currentProperties.filter(property => property.id !== propertyId)
+      );
+    } else {
+      // User clicked "Cancel"
+      console.log('Property deletion cancelled.');
+    }
+  }
+
+
   const filteredProperties = properties.filter(property => {
     const name = property.name.toLowerCase();
     const address = property.address.toLowerCase();
@@ -64,7 +80,7 @@ export default function PropertyManagementPage() {
         {filteredProperties.map(property => {
           switch(property.type) {
             case 'Apartment Building':
-              return <Apartment key={property.id} property={property} onUpdate={updateProperties}/>;
+              return <Apartment key={property.id} property={property} onUpdate={updateProperties} onDelete={deleteProperty}/>;
             case 'Duplex':
               return <Duplex key={property.id} property={property} />;
             case 'Home':

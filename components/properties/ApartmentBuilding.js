@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import PropertyForm from './PropertyForm'; // Import PropertyForm component
 
-const ApartmentBuilding = ({ property, onUpdate }) => {
+const ApartmentBuilding = ({ property, onUpdate, onDelete }) => {
   const [unitVisibility, setUnitVisibility] = useState({});
   const [isEditing, setIsEditing] = useState(false);
 
@@ -65,8 +65,11 @@ const ApartmentBuilding = ({ property, onUpdate }) => {
       )}
       {!isEditing && (
         <div className='relative h-6'>
-          <button className='bottom-0 right-0 absolute' onClick={handleEdit}>
+          <button className='bottom-0 right-10 absolute' onClick={handleEdit}>
           ✏️
+          </button>
+          <button className='bottom-0 right-0 absolute' onClick={() => onDelete(property.id)}>
+          🗑️
           </button>
         </div>
       )}
