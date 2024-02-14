@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import PropertyForm from './PropertyForm'; // Import PropertyForm component
 
 const ApartmentBuilding = ({ property, onUpdate }) => {
@@ -23,15 +24,25 @@ const ApartmentBuilding = ({ property, onUpdate }) => {
 
   return (
     <div key={property.id} className="border border-gray-300 p-4 rounded-md mb-4">
-      <h2 className="text-2xl font-semibold mb-4">{property.name}</h2>
-      <p className="text-gray-700 mb-2">{property.address}</p>
+    <div className="w-full relative pt-[100%]">
+        <Image
+          src={property.imageUrl}
+          alt={property.name}
+          objectFit="cover"
+          layout="fill"
+          className="w-full h-full top-0 left-0 object-cover rounded-2xl"
+        />
+      </div>
+    <h2 className="text-2xl font-semibold mb-4">{property.name}</h2>
+    <p className="text-gray-700 mb-2">{property.address}</p>
+
       {property.units.map((unit) => (
         <div key={unit.id} className="border border-gray-300 p-4 rounded-md mb-2">
           <button
             onClick={() => toggleUnitVisibility(unit.id)}
             className="font-semibold mb-2 focus:outline-none"
           >
-            {unit.unitNumber} - {unitVisibility[unit.id] ? 'Hide' : 'Show'}
+            {unit.unitNumber} {unit.occupied && ' - Occupied'}
           </button>
           {unitVisibility[unit.id] && (
             <div className="mt-2">

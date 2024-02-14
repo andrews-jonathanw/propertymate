@@ -6,6 +6,7 @@ const properties = [
     type: 'Apartment Building',
     name: 'City Heights Apartments',
     address: '789 Park Avenue, Springfield, CA',
+    imageUrl: '/assets/apartments.jpg',
     units: [
       {
         id: 1,
