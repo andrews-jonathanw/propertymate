@@ -3,3 +3,41 @@
 @tailwind utilities;
 
 
+/* global.css */
+.propertyCard {
+  position: relative;
+  width: 100%;
+  min-height: 280px;
+  min-width: 280px;
+  border-radius: 16px;
+  overflow: visible;
+  margin: 16px 0;
+  z-index: 10;
+}
+
+.cardToolBar {
+  width: 36px;
+  height: 146px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  right: 0px;
+  visibility: hidden;
+  z-index: -1;
+  transition: right 0.4s ease-in-out, visibility 0.4s ease-in-out;
+}
+
+
+.propertyCard:hover .cardToolBar {
+  right: -21px; /* Adjust to slide in from the right */
+  visibility: visible;
+}
+
+
+
+
+
+

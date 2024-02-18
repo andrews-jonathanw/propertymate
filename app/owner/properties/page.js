@@ -72,12 +72,12 @@ export default function PropertyManagementPage() {
   });
 
   return (
-    <div className="flex flex-col items-center justify-center p-8">
+    <div className="flex flex-col items-center justify-center p-8 ">
       <h1 className="text-3xl font-bold mb-8">Property Management</h1>
 
       <PropertySearch searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {filteredProperties.map(property => {
           return (
             <PropertyCard key={property.id} property={property} />
