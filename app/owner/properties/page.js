@@ -5,6 +5,7 @@ import Duplex from '../../../components/properties/Duplex';
 import Home from '../../../components/properties/Home';
 import Condo from '../../../components/properties/Condo';
 import PropertySearch from '../../../components/properties/PropertySearch';
+import PropertyCard from '@/components/properties/PropertyCard';
 
 export default function PropertyManagementPage() {
 
@@ -78,18 +79,9 @@ export default function PropertyManagementPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredProperties.map(property => {
-          switch(property.type) {
-            case 'Apartment Building':
-              return <Apartment key={property.id} property={property} onUpdate={updateProperties} onDelete={deleteProperty}/>;
-            case 'Duplex':
-              return <Duplex key={property.id} property={property} />;
-            case 'Home':
-              return <Home key={property.id} property={property} />;
-            case 'Condo':
-              return <Condo key={property.id} property={property} />;
-            default:
-              return null;
-          }
+          return (
+            <PropertyCard key={property.id} property={property} />
+          )
         })}
       </div>
     </div>

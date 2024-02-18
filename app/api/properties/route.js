@@ -125,7 +125,7 @@ const properties = [
     description: 'Elegant waterfront condo with breathtaking views of the bay.',
     occupied: false,
     tenant: null,
-    imageUrl: '/images/condo1.jpg'
+    imageUrl: '/assets/condos.jpg'
   }
 ];
 

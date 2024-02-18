@@ -15,7 +15,7 @@ const Duplex = ({ property }) => {
     <div key={property.id} className="border border-gray-300 p-4 rounded-md mb-4">
       <h2 className="text-2xl font-semibold mb-4">{property.name}</h2>
       <p className="text-gray-700 mb-2">{property.address}</p>
-      {property.units.map((unit) => (
+      {/* {property.units.map((unit) => (
         <div key={unit.id} className="border border-gray-300 p-4 rounded-md mb-2">
           <button
             onClick={() => toggleUnitVisibility(unit.id)}
@@ -38,7 +38,7 @@ const Duplex = ({ property }) => {
             </div>
           )}
         </div>
-      ))}
+      ))} */}
     </div>
   );
 };
