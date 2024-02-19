@@ -6,11 +6,13 @@ import Home from '../../../components/properties/Home';
 import Condo from '../../../components/properties/Condo';
 import PropertySearch from '../../../components/properties/PropertySearch';
 import PropertyCard from '@/components/properties/PropertyCard';
+import PropertyViewer from '@/components/properties/PropertyViewer';
 
 export default function PropertyManagementPage() {
 
   const [properties, setProperties] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [viewingProperty, setViewingProperty] = useState(null);
 
 
   useEffect(() => {
@@ -61,6 +63,10 @@ export default function PropertyManagementPage() {
     }
   }
 
+  const handleViewProperty = (property) => {
+    setViewingProperty(property);
+  };
+
 
   const filteredProperties = properties.filter(property => {
     const name = property.name.toLowerCase();
@@ -74,14 +80,16 @@ export default function PropertyManagementPage() {
   return (
     <div className="flex flex-col items-center justify-center p-8 ">
     <h1 className="text-3xl font-bold mb-8">Property Management</h1>
-
+    {viewingProperty && (
+      <PropertyViewer property={viewingProperty} onClose={() => setViewingProperty(null)} />
+    )}
     <PropertySearch searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
       {filteredProperties.map((property, index) => {
         return (
           <div key={property.id}>
-            <PropertyCard property={property} />
+            <PropertyCard property={property} onView={handleViewProperty} />
           </div>
         );
       })}

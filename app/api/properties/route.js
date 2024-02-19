@@ -14,6 +14,7 @@ const properties = [
         bedrooms: 1,
         bathrooms: 1,
         size: '600 sqft',
+        rent: 1200,
         occupied: true,
         tenant: {
           id: 101,
@@ -29,6 +30,7 @@ const properties = [
         bedrooms: 2,
         bathrooms: 1,
         size: '800 sqft',
+        rent: 1500,
         occupied: false,
         tenant: null,
         imageUrl: '/assets/apt102.jpg'
@@ -39,6 +41,7 @@ const properties = [
         bedrooms: 2,
         bathrooms: 1,
         size: '800 sqft',
+        rent: 1500,
         occupied: true,
         tenant: {
           id: 102,
@@ -63,6 +66,7 @@ const properties = [
         bedrooms: 2,
         bathrooms: 1,
         size: '1,000 sqft',
+        rent: 1800,
         occupied: true,
         tenant: {
           id: 102,
@@ -78,6 +82,7 @@ const properties = [
         bedrooms: 2,
         bathrooms: 1,
         size: '1,000 sqft',
+        rent: 1800,
         occupied: false,
         tenant: null,
         imageUrl: '/assets/unitB.jpg'
@@ -92,6 +97,7 @@ const properties = [
     bedrooms: 3,
     bathrooms: 2,
     size: '1,200 sqft',
+    rent: 2000,
     description: 'Charming cottage with a spacious backyard, perfect for a small family.',
     occupied: false,
     tenant: null,
@@ -105,6 +111,7 @@ const properties = [
     bedrooms: 6,
     bathrooms: 4,
     size: '5,000 sqft',
+    rent: 5000,
     description: 'Stunning Victorian mansion with historical charm and modern amenities.',
     occupied: true,
     tenant: {
@@ -123,6 +130,7 @@ const properties = [
     bedrooms: 2,
     bathrooms: 2,
     size: '1,500 sqft',
+    rent: 3000,
     description: 'Elegant waterfront condo with breathtaking views of the bay.',
     occupied: false,
     tenant: null,
