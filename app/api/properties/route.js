@@ -21,7 +21,7 @@ const properties = [
           email: 'john@example.com',
           phone: '123-456-7890'
         },
-        imageUrl: '/images/apt101.jpg'
+        imageUrl: '/assets/apt101.jpg'
       },
       {
         id: 2,
@@ -31,7 +31,7 @@ const properties = [
         size: '800 sqft',
         occupied: false,
         tenant: null,
-        imageUrl: '/images/apt102.jpg'
+        imageUrl: '/assets/apt102.jpg'
       },
       {
         id: 3,
@@ -46,7 +46,7 @@ const properties = [
           email: 'emilyJohnson@example.com',
           phone: '987-654-3210'
         },
-        imageUrl: '/images/apt103.jpg'
+        imageUrl: '/assets/apt103.jpg'
       }
     ]
   },
@@ -55,6 +55,7 @@ const properties = [
     type: 'Duplex',
     name: 'Sunnyvale Duplex',
     address: '456 Maple Street, Springfield, CA',
+    imageUrl: '/assets/duplex1.jpg',
     units: [
       {
         id: 1,
@@ -69,7 +70,7 @@ const properties = [
           email: 'emily@example.com',
           phone: '987-654-3210'
         },
-        imageUrl: '/images/unitA.jpg'
+        imageUrl: '/assets/unitA.jpg'
       },
       {
         id: 2,
@@ -79,7 +80,7 @@ const properties = [
         size: '1,000 sqft',
         occupied: false,
         tenant: null,
-        imageUrl: '/images/unitB.jpg'
+        imageUrl: '/assets/unitB.jpg'
       }
     ]
   },
@@ -94,7 +95,7 @@ const properties = [
     description: 'Charming cottage with a spacious backyard, perfect for a small family.',
     occupied: false,
     tenant: null,
-    imageUrl: '/images/home1.jpg'
+    imageUrl: '/assets/home1.jpg'
   },
   {
     id: 4,
@@ -112,7 +113,7 @@ const properties = [
       email: 'michael@example.com',
       phone: '555-123-4567'
     },
-    imageUrl: '/images/home2.jpg'
+    imageUrl: '/assets/home2.jpg'
   },
   {
     id: 5,
