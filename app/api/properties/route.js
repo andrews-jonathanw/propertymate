@@ -120,7 +120,15 @@ const properties = [
       email: 'michael@example.com',
       phone: '555-123-4567'
     },
-    imageUrl: '/assets/home2.jpg'
+    imageUrl: '/assets/home2.jpg',
+    images: [
+      '/assets/homePictures/masterBedroom.jpg',
+      '/assets/homePictures/kitchen.jpg',
+      '/assets/homePictures/livingRoom.jpg',
+      '/assets/homePictures/bathroom1.jpg',
+      '/assets/homePictures/bedroom2.jpg',
+      '/assets/homePictures/outsideBathhouse.jpg'
+    ]
   },
   {
     id: 5,
