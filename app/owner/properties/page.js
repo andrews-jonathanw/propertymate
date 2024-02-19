@@ -73,17 +73,28 @@ export default function PropertyManagementPage() {
 
   return (
     <div className="flex flex-col items-center justify-center p-8 ">
-      <h1 className="text-3xl font-bold mb-8">Property Management</h1>
+    <h1 className="text-3xl font-bold mb-8">Property Management</h1>
 
-      <PropertySearch searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+    <PropertySearch searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-        {filteredProperties.map(property => {
-          return (
-            <PropertyCard key={property.id} property={property} />
-          )
-        })}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      {filteredProperties.map((property, index) => {
+        return (
+          <div key={property.id}>
+            <PropertyCard property={property} />
+          </div>
+        );
+      })}
+      <div>
+        <button
+          onClick={() => {
+            console.log('Add new property');
+          }}
+          className="flex items-center justify-center min-h-[280px] min-w-[280px] bg-gray-100 border-2 border-dashed border-gray-300 rounded-2xl my-4">
+          <span className="text-4xl">+</span>
+        </button>
       </div>
     </div>
+  </div>
   );
 }

@@ -6,7 +6,7 @@ import PropertyAlerts from './PropertyAlerts'
 
 export default function PropertyCard({ property }) {
   return (
-    <div className={`propertyCard relative w-full min-h-[280px] min-w-[280px] overflow-hidden my-4 group`}>
+    <div className={`propertyCard relative w-full min-h-[280px] min-w-[280px] overflow-hidden my-4`}>
       <div className="relative z-20"> {/* Ensure the alert has a higher z-index */}
         <PropertyAlerts property={property} />
       </div>
