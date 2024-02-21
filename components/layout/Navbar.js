@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { useUser } from "../../context/UserContext";
 import Container from "../ui/Container";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Button from "../ui/Button";

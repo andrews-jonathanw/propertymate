@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import PropertyForm from './PropertyForm'; // Assuming this can be reused or adapted
 
 const Condo = ({ property, onUpdate, onDelete }) => {

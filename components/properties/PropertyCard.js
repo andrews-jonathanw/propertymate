@@ -1,6 +1,6 @@
 // PropertyCard.js
 import React from 'react'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import CardToolBar from './CardToolBar' // Adjust the import path as necessary
 import PropertyAlerts from './PropertyAlerts'
 
