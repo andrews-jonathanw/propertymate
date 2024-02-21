@@ -113,6 +113,20 @@ const properties = [
     size: '5,000 sqft',
     rent: 5000,
     description: 'Stunning Victorian mansion with historical charm and modern amenities.',
+    amenities: [
+      'Spacious backyard with garden area',
+      'Large outdoor patio for entertaining',
+      'Formal dining room with seating for ten',
+      'Private home office or study room',
+      'Finished basement with recreational area',
+      'Cozy fireplace in the living room',
+      'Central air conditioning and heating system',
+      'Attached three-car garage with ample storage space',
+      'Luxurious master suite with ensuite bathroom',
+      'Modern kitchen with high-end appliances',
+      'Large windows offering plenty of natural light',
+      'Energy-efficient solar panels for reduced energy costs'
+    ],
     occupied: true,
     tenant: {
       id: 103,

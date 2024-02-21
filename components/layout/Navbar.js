@@ -18,7 +18,7 @@ export default function Navbar() {
   }, [userType]);
 
   return (
-    <div className="sticky top-0 border border-b-primary/10 bg-secondary z-50">
+    <div className="navBar sticky top-0 border border-b-primary/10 bg-secondary">
       <Container>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-1" onClick={() => router.push("/")}>

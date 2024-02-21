@@ -16,6 +16,8 @@ export default function PropertyCard({ property, onView }) {
         alt={property.name}
         layout="fill"
         objectFit="cover"
+        sizes='(min-width: 640px) 50vw, 100vw'
+        priority={true}
       />
 
       <div className=" absolute bottom-0 left-0 p-4 bg-black bg-opacity-50 w-full rounded-b-2xl">

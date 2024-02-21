@@ -41,3 +41,11 @@
   transform: scale(1.05);
   transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
 }
+
+.react-multiple-carousel__arrow {
+  z-index: 40;
+}
+
+.navBar {
+  z-index: 2000;
+}
