@@ -10,12 +10,12 @@ const responsive = {
     slidesToSlide: 3
   },
   tablet: {
-    breakpoint: { max: 1024, min: 464 },
+    breakpoint: { max: 1024, min: 650 },
     items: 2,
     slidesToSlide: 2
   },
   mobile: {
-    breakpoint: { max: 464, min: 0 },
+    breakpoint: { max: 650, min: 0 },
     items: 1,
     slidesToSlide: 1
   }
@@ -39,7 +39,7 @@ const PropertyViewer = ({ property, onClose }) => {
       </span>
       {property.images && (
         <div className='flex items-center justify-center'>
-          <div className='w-[800px]'>
+          <div className='w-full'>
             <Carousel
               responsive={responsive}
               swipeable={true}
@@ -63,6 +63,7 @@ const PropertyViewer = ({ property, onClose }) => {
                     layout="fill"
                     objectFit="cover"
                     className="rounded-lg"
+                    sizes='(max-width: 640px) 100vw, (max-width: 1023px) 50vw, 33vw'
                   />
                 </div>
               ))}

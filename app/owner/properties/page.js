@@ -78,13 +78,15 @@ export default function PropertyManagementPage() {
   });
 
   return (
-    <div className="flex flex-col items-center justify-center p-28">
+    <div className="flex flex-col items-center justify-center py-28 px-8">
       {viewingProperty ? (
+        <div className='w-full'>
         <PropertyViewer property={viewingProperty} onClose={() => setViewingProperty(null)} />
+        </div>
       ) : (
         <div className="flex flex-col items-center justify-center">
           <PropertySearch searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 space-x-4">
             {filteredProperties.map((property, index) => (
               <div key={property.id}>
                 <PropertyCard property={property} onView={handleViewProperty} />
