@@ -1,6 +1,6 @@
 'use client';
 import { useUser } from "../context/UserContext";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Button from "../components/ui/Button";
 
 export default function Home() {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -60,11 +60,12 @@ const PropertyViewer = ({ property, onClose }) => {
                   <Image
                     src={image}
                     alt={property.name}
-                    layout="fill"
-                    objectFit="cover"
                     className="rounded-lg"
+                    fill
                     sizes='(max-width: 640px) 100vw, (max-width: 1023px) 50vw, 33vw'
-                  />
+                    style={{
+                      objectFit: "cover"
+                    }} />
                 </div>
               ))}
             </Carousel>

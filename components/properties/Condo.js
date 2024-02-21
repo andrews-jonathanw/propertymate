@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Image from "next/legacy/image";
+import Image from "next/image";
 import PropertyForm from './PropertyForm'; // Assuming this can be reused or adapted
 
 const Condo = ({ property, onUpdate, onDelete }) => {
@@ -20,10 +20,12 @@ const Condo = ({ property, onUpdate, onDelete }) => {
         <Image
           src={property.imageUrl}
           alt={property.name}
-          layout="fill"
-          objectFit="cover"
           className="absolute top-0 left-0 w-full h-full object-cover rounded-lg"
-        />
+          fill
+          sizes="100vw"
+          style={{
+            objectFit: "cover"
+          }} />
       </div>
       <h2 className="text-xl font-semibold mb-2">{property.name}</h2>
       <p className="text-gray-700">{property.address}</p>

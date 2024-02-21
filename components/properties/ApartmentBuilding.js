@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Image from "next/legacy/image";
+import Image from "next/image";
 import PropertyForm from './PropertyForm'; // Import PropertyForm component
 
 const ApartmentBuilding = ({ property, onUpdate, onDelete }) => {
@@ -28,10 +28,12 @@ const ApartmentBuilding = ({ property, onUpdate, onDelete }) => {
         <Image
           src={property.imageUrl}
           alt={property.name}
-          objectFit="cover"
-          layout="fill"
           className="w-full h-full top-0 left-0 object-cover rounded-2xl"
-        />
+          fill
+          sizes="100vw"
+          style={{
+            objectFit: "cover"
+          }} />
       </div>
     <h2 className="text-2xl font-semibold mb-4">{property.name}</h2>
     <p className="text-gray-700 mb-2">{property.address}</p>

@@ -1,6 +1,6 @@
 // PropertyCard.js
 import React from 'react'
-import Image from "next/legacy/image"
+import Image from "next/image"
 import CardToolBar from './CardToolBar' // Adjust the import path as necessary
 import PropertyAlerts from './PropertyAlerts'
 
@@ -14,11 +14,12 @@ export default function PropertyCard({ property, onView }) {
         src={property.imageUrl}
         className='rounded-2xl'
         alt={property.name}
-        layout="fill"
-        objectFit="cover"
-        sizes='(min-width: 640px) 50vw, 100vw'
         priority={true}
-      />
+        fill
+        sizes='(min-width: 640px) 50vw, 100vw'
+        style={{
+          objectFit: "cover"
+        }} />
 
       <div className=" absolute bottom-0 left-0 p-4 bg-black bg-opacity-50 w-full rounded-b-2xl">
         <h2 className="text-slate-100 text-lg font-bold">{property.name}</h2>
@@ -26,7 +27,7 @@ export default function PropertyCard({ property, onView }) {
       </div>
       <CardToolBar property={property} onView={onView}/>
     </div>
-  )
+  );
 }
 
 

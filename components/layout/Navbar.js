@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { useUser } from "../../context/UserContext";
 import Container from "../ui/Container";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Button from "../ui/Button";
@@ -22,7 +22,16 @@ export default function Navbar() {
       <Container>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-1" onClick={() => router.push("/")}>
-            <Image src="/assets/propertyMateLogo.jpeg" alt="logo" width={50} height={50} className="hover:cursor-pointer" />
+            <Image
+              src="/assets/propertyMateLogo.jpeg"
+              alt="logo"
+              width={50}
+              height={50}
+              className="hover:cursor-pointer"
+              style={{
+                maxWidth: "100%",
+                height: "auto"
+              }} />
             <div className="font-bold text-xl">PropertyMate</div>
           </div>
           <div className="flex items-center gap-3">
