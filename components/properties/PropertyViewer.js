@@ -21,7 +21,7 @@ const responsive = {
   }
 };
 
-const PropertyViewer = ({ property, onClose }) => {
+const PropertyViewer = ({ property, onClose}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextSlide = () => {
@@ -34,9 +34,9 @@ const PropertyViewer = ({ property, onClose }) => {
 
   return (
     <div className="relative bg-white rounded-lg p-8 flex flex-col gap-2">
-      <span className="absolute top-0 right-0 p-4 cursor-pointer text-gray-500 hover:text-gray-700" onClick={onClose}>
+      <div className="absolute top-0 right-0 m-2 cursor-pointer text-gray-500 hover:text-gray-700 text-2xl z-50" onClick={onClose}>
         &times;
-      </span>
+      </div>
       {property.images && (
         <div className='flex items-center justify-center'>
           <div className='w-full'>

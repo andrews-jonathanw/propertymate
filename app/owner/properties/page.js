@@ -13,6 +13,8 @@ export default function PropertyManagementPage() {
   const [properties, setProperties] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [viewingProperty, setViewingProperty] = useState(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
+
 
 
   useEffect(() => {
@@ -81,15 +83,20 @@ export default function PropertyManagementPage() {
     <div className="flex flex-col items-center justify-center py-28 px-8">
       {viewingProperty ? (
         <div className='w-full'>
-        <PropertyViewer property={viewingProperty} onClose={() => setViewingProperty(null)} />
+        <PropertyViewer property={viewingProperty} onClose={() => {
+          setViewingProperty(null)
+          setTimeout(() => {
+            window.scrollTo(0, scrollPosition);
+          }, 100);
+          }}/>
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center">
           <PropertySearch searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 space-x-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {filteredProperties.map((property, index) => (
               <div key={property.id}>
-                <PropertyCard property={property} onView={handleViewProperty} />
+                <PropertyCard property={property} onView={handleViewProperty} setScrollPosition={setScrollPosition}/>
               </div>
             ))}
             <div>
