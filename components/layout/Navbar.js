@@ -39,12 +39,12 @@ export default function Navbar() {
             {userType === "owner" ? (
               <Button onClick={() => {
                 setUserType("tenant");
-                router.push("/");
+                router.push("/tenant/home");
               }}>Tenant View</Button>
             ) : (
               <Button onClick={() => {
                 setUserType("owner");
-                router.push("/");
+                router.push("/owner/home");
               }}>Owner View</Button>
             )}
 
@@ -83,7 +83,7 @@ export default function Navbar() {
             {userType === "tenant" ? (
               <>
                 <Button onClick={()=> {
-                  router.push("/");
+                  router.push("/tenant/home");
                   setShowMenu(false);
                 }}>Home</Button>
                 <Button onClick={()=> {
@@ -98,7 +98,7 @@ export default function Navbar() {
             ) : (
               <>
                 <Button onClick={()=> {
-                    router.push("/");
+                    router.push("/owner/home");
                     setShowMenu(false);
                   }}>Home</Button>
                 <Button onClick={()=> {
