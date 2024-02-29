@@ -4,41 +4,95 @@ const ownerAlerts = [
   {
     id: 1,
     type: 'Maintenance',
-    message: 'City Heights Apartments: Apt 101 has a leaky faucet',
-    date: '2024-02-04'
+    location: 'City Heights Apartments',
+    unit: 'Apt 101',
+    message: 'Has a leaky kitchen faucet',
+    date: '2024-01-19',
+    status: 'Pending'
   },
   {
     id: 2,
     type: 'Payment',
-    message: 'Sunnyvale Duplex: Rent payment for Apt 1 is overdue',
-    date: '2024-02-03'
+    location: 'City Heights Apartments',
+    unit: 'Apt 103',
+    message: 'Rent has been paid',
+    date: '2024-01-22',
+    status: 'Completed'
   },
   {
     id: 3,
-    type: 'Maintenance',
-    message: 'City Heights Apartments: Apt 103 has a broken window',
-    date: '2024-02-18'
+    type: 'Lease',
+    location: 'Sunnyvale Duplex',
+    unit: 'Unit A',
+    message: 'Lease is up for renewal',
+    date: '2024-02-04',
+    status: 'Pending'
   },
   {
     id: 4,
-    type: 'Payment',
-    message: 'Sunnyvale Duplex: Rent payment for Apt 2 is overdue',
-    date: '2024-02-03'
+    type: 'Maintenance',
+    location: 'Sunnyvale Duplex',
+    unit: 'Unit B',
+    message: 'Needs plumbing repairs',
+    date: '2024-02-04',
+    status: 'Working'
   },
   {
     id: 5,
-    type: 'Lease',
-    message: 'City Heights Apartments: Lease for Apt 101 is expiring soon',
-    date: '2024-02-28'
+    type: 'Payment',
+    location: 'Cozy Cottage',
+    unit: '',
+    message: 'Rent overdue',
+    date: '2024-02-21',
+    status: 'Pending'
   },
   {
     id: 6,
+    type: 'Maintenance',
+    location: 'Grand Victorian Mansion',
+    unit: '',
+    message: 'Roof repair needed',
+    date: '2024-03-01',
+    status: 'Pending'
+  },
+  {
+    id: 7,
+    type: 'Maintenance',
+    location: 'Luxury Waterfront Condo',
+    unit: '',
+    message: 'Elevator maintenance scheduled',
+    date: '2024-02-04',
+    status: 'Working'
+  },
+  {
+    id: 8,
     type: 'Lease',
-    message: 'City Heights Apartments: Lease for Apt 103 is expiring soon',
-    date: '2024-02-28'
+    location: 'City Heights Apartments',
+    unit: 'Apt 102',
+    message: 'New tenant moving in next month',
+    date: '2024-01-04',
+    status: 'Pending'
+  },
+  {
+    id: 9,
+    type: 'Payment',
+    location: 'Grand Victorian Mansion',
+    unit: '',
+    message: 'Rent payment received',
+    date: '2024-02-14',
+    status: 'Completed'
+  },
+  {
+    id: 10,
+    type: 'Maintenance',
+    location: 'Sunnyvale Duplex',
+    unit: 'Unit B',
+    message: 'HVAC system needs repair',
+    date: '2024-02-24',
+    status: 'Working'
   }
-
 ];
+
 
 export async function GET() {
   return NextResponse.json({ownerAlerts});
