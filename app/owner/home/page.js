@@ -30,20 +30,19 @@ export default function Page() {
     fetchAlerts();
   }, []);
 
-
   return (
-    <div className='p-28'>
-      <h1 className='text-center'>
+    <div className="pt-28 px-6 text-customLight-text">
+      <h1 className="text-center font-extrabold">
         Currently viewing the Owner Home Page
       </h1>
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <div className="flex flex-col items-center justify-between mx-auto my-8 gap-6">
+        <div className="flex flex-col items-center justify-between mx-auto my-2 gap-6">
           <OwnerAlerts alerts={alerts}/>
           <OwnerCalendar />
         </div>
       )}
     </div>
-  )
+  );
 }

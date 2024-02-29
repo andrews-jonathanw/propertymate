@@ -13,9 +13,9 @@ export default function RootLayout({ children }) {
     <UserProvider>
       <html lang="en">
         <body>
-          <main className="flex flex-col min-h-screen bg-gray-900">
+          <main className="flex flex-col min-h-screen">
             <Navbar />
-            <section className="flex-grow bg-slate-200">
+            <section className="flex-grow bg-customLight-background">
               {children}
             </section>
             <Footer />

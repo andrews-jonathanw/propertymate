@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { FaSortAmountDown, FaSortAmountUp } from 'react-icons/fa'; // Import icons
 import Alert from './Alert';
+import AlertFilters from './AlertFilters';
 
 export default function OwnerAlerts({ alerts }) {
   const [sortedAlerts, setSortedAlerts] = useState([...alerts]);
@@ -46,7 +48,7 @@ export default function OwnerAlerts({ alerts }) {
     sortAlerts(newDirection);
   };
 
-  const sortedArrow = sortDirection === 'asc' ? '↑' : '↓';
+  const sortedArrow = sortDirection === 'asc' ? <FaSortAmountUp /> : <FaSortAmountDown />; // Icon for sorting direction
 
   const filteredAlerts = sortedAlerts.filter(alert =>
     (!filterType || alert.type === filterType) &&
@@ -55,36 +57,21 @@ export default function OwnerAlerts({ alerts }) {
   );
 
   return (
-    <div className='owner-alerts-container'>
-      <div className="flex justify-between mb-4">
-        <div className="flex space-x-4">
-          <select value={filterType} onChange={(e) => handleFilterChange(e, setFilterType)}>
-            <option value="">All Types</option>
-            <option value="Maintenance">Maintenance</option>
-            <option value="Payment">Payment</option>
-            <option value="Lease">Lease</option>
-          </select>
-          <select value={filterLocation} onChange={(e) => handleFilterChange(e, setFilterLocation)}>
-            <option value="">All Locations</option>
-            {locations.map((location, index) => (
-              <option key={index} value={location}>{location}</option>
-            ))}
-          </select>
-          <select value={filterStatus} onChange={(e) => handleFilterChange(e, setFilterStatus)}>
-            <option value="">All Statuses</option>
-            <option value="Pending">Pending</option>
-            <option value="Completed">Completed</option>
-            <option value="Working">Working</option>
-          </select>
-        </div>
-        <div className="flex space-x-4">
-          <button className="bg-gray-300 hover:bg-gray-400 py-2 px-4 rounded" onClick={toggleSortDirection}>
-            Date {sortedArrow}
-          </button>
-          <button className="bg-gray-300 hover:bg-gray-400 py-2 px-4 rounded" onClick={clearFilters}>Clear Filters</button>
-        </div>
-      </div>
-      <div className='max-h-48 overflow-y-auto p-4'>
+    <div className='w-full bg-customLight-primary bg-opacity-40 rounded-xl p-4'>
+      <AlertFilters
+        filterType={filterType}
+        setFilterType={setFilterType}
+        filterLocation={filterLocation}
+        setFilterLocation={setFilterLocation}
+        filterStatus={filterStatus}
+        setFilterStatus={setFilterStatus}
+        locations={locations}
+        handleFilterChange={handleFilterChange}
+        clearFilters={clearFilters}
+        toggleSortDirection={toggleSortDirection}
+        sortedArrow={sortedArrow}
+      />
+      <div className='max-h-48 overflow-y-auto mt-4 bg-white bg-opacity-50 rounded-md'>
         {filteredAlerts.map((alert, index) => (
           <Alert key={index} alert={alert} />
         ))}
