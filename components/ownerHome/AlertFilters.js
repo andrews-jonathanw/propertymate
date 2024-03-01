@@ -2,8 +2,8 @@ import React from 'react';
 
 export default function AlertFilters({ filterType, setFilterType, filterLocation, setFilterLocation, filterStatus, setFilterStatus, locations, handleFilterChange, clearFilters, toggleSortDirection, sortedArrow }) {
   return (
-    <div className="flex flex-col md:flex-row justify-between m-4 max-w-full">
-      <div className="flex flex-wrap md:flex-nowrap space-y-2 md:space-x-4 md:space-y-0 flex-grow items-center">
+    <div className="flex flex-col md:flex-row justify-between max-w-full">
+      <div className="flex flex-wrap space-y-2  md:space-y-0 md:gap-2 flex-grow items-center">
         <select
           value={filterType}
           onChange={(e) => handleFilterChange(e, setFilterType)}
@@ -35,6 +35,8 @@ export default function AlertFilters({ filterType, setFilterType, filterLocation
           <option value="Completed">Completed</option>
           <option value="Working">Working</option>
         </select>
+        <div className='flex flex-row gap-2'>
+
         <button className="bg-customLight-accent border border-customLight-secondary py-2 px-4 rounded-md text-sm md:text-base text-customLight-text hover:bg-customLight-secondary hover:text-customLight-accent focus:outline-none focus:border-customLight-primary focus:ring focus:ring-customLight-primary focus:ring-opacity-50 flex flex-row items-center justify-center gap-2" onClick={toggleSortDirection}>
           <div>
             Date
@@ -43,7 +45,8 @@ export default function AlertFilters({ filterType, setFilterType, filterLocation
             {sortedArrow}
           </div>
         </button>
-        <button className="bg-customLight-accent border border-customLight-secondary py-2 px-4 rounded-md text-sm md:text-base text-customLight-text hover:bg-customLight-secondary hover:text-customLight-accent focus:outline-none focus:border-customLight-primary focus:ring focus:ring-customLight-primary focus:ring-opacity-50 ml-2" onClick={clearFilters}>Clear Filters</button>
+        <button className="bg-customLight-accent border border-customLight-secondary py-2 rounded-md text-sm md:text-base text-customLight-text hover:bg-customLight-secondary hover:text-customLight-accent focus:outline-none focus:border-customLight-primary focus:ring focus:ring-customLight-primary focus:ring-opacity-50" onClick={clearFilters}>Clear Filters</button>
+        </div>
       </div>
     </div>
   );
