@@ -77,7 +77,7 @@ export default function OwnerCalendar({alerts}) {
   };
 
   return (
-    <div className='w-full p-4 bg-customLight-primary bg-opacity-15 rounded-lg'>
+    <div className='w-full p-4 bg-customLight-primary bg-opacity-15 rounded-lg mb-1'>
       <div className='flex justify-between items-center mb-4'>
         <div className='flex flex-col items-start'>
           <button onClick={goToPreviousMonth} className='text-customLight-text'>Previous Month</button>

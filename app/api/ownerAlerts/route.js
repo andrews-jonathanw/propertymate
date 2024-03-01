@@ -26,8 +26,9 @@ const ownerAlerts = [
     location: 'Sunnyvale Duplex',
     unit: 'Unit A',
     message: 'Lease is up for renewal',
-    date: '2024-02-04',
-    status: 'Pending'
+    date: '2024-01-18',
+    status: 'Pending',
+    leaseExpiration: '2024-02-01'
   },
   {
     id: 4,
@@ -36,7 +37,8 @@ const ownerAlerts = [
     unit: 'Unit B',
     message: 'Needs plumbing repairs',
     date: '2024-02-04',
-    status: 'Working'
+    status: 'Working',
+    scheduled: '2024-02-10',
   },
   {
     id: 5,
@@ -54,7 +56,8 @@ const ownerAlerts = [
     unit: '',
     message: 'Roof repair needed',
     date: '2024-03-01',
-    status: 'Pending'
+    status: 'Pending',
+    scheduled: null,
   },
   {
     id: 7,
@@ -72,7 +75,8 @@ const ownerAlerts = [
     unit: 'Apt 102',
     message: 'New tenant moving in next month',
     date: '2024-01-04',
-    status: 'Pending'
+    status: 'Pending',
+    leaseStart: '2024-02-01'
   },
   {
     id: 9,
@@ -90,7 +94,8 @@ const ownerAlerts = [
     unit: 'Unit B',
     message: 'HVAC system needs repair',
     date: '2024-02-24',
-    status: 'Working'
+    status: 'Working',
+    scheduled: '2024-02-28',
   }
 ];
 
