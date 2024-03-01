@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import CalendarDay from './CalendarDay';
+import CalendarDays from './CalendarDays';
 
 export default function OwnerCalendar({alerts}) {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -93,7 +93,7 @@ export default function OwnerCalendar({alerts}) {
         {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
           <div key={day} className='text-center text-sm font-semibold text-customLight-text'>{day}</div>
         ))}
-        <CalendarDay generateDaysArray={generateDaysArray} currentDate={currentDate} isCurrentDay={isCurrentDay} alerts={alerts} />
+        <CalendarDays generateDaysArray={generateDaysArray} currentDate={currentDate} isCurrentDay={isCurrentDay} alerts={alerts} />
       </div>
     </div>
   );

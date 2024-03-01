@@ -66,7 +66,8 @@ const ownerAlerts = [
     unit: '',
     message: 'Elevator maintenance scheduled',
     date: '2024-02-04',
-    status: 'Working'
+    status: 'Working',
+    scheduled: '2024-03-10',
   },
   {
     id: 8,
