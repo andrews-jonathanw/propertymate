@@ -40,7 +40,7 @@ export default function Page() {
       ) : (
         <div className="flex flex-col items-center justify-between mx-auto my-2 gap-6">
           <OwnerAlerts alerts={alerts}/>
-          <OwnerCalendar />
+          <OwnerCalendar alerts={alerts} />
         </div>
       )}
     </div>

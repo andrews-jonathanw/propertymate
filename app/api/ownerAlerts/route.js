@@ -8,7 +8,8 @@ const ownerAlerts = [
     unit: 'Apt 101',
     message: 'Has a leaky kitchen faucet',
     date: '2024-01-19',
-    status: 'Pending'
+    status: 'Pending',
+    scheduled: '2024-01-25',
   },
   {
     id: 2,
@@ -44,7 +45,7 @@ const ownerAlerts = [
     unit: '',
     message: 'Rent overdue',
     date: '2024-02-21',
-    status: 'Pending'
+    status: 'Unpaid'
   },
   {
     id: 6,

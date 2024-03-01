@@ -57,7 +57,7 @@ export default function OwnerAlerts({ alerts }) {
   );
 
   return (
-    <div className='w-full bg-customLight-primary bg-opacity-40 rounded-xl p-4'>
+    <div className='w-full bg-customLight-primary bg-opacity-15 rounded-xl p-4'>
       <AlertFilters
         filterType={filterType}
         setFilterType={setFilterType}

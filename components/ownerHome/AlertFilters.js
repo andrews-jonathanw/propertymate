@@ -30,6 +30,7 @@ export default function AlertFilters({ filterType, setFilterType, filterLocation
           className="w-full md:w-auto text-sm md:text-base border border-gray-300 rounded-md py-2 px-4 bg-customLight-background focus:outline-none focus:border-customLight-primary focus:ring focus:ring-customLight-primary focus:ring-opacity-50"
         >
           <option value="">All Statuses</option>
+          <option value="Unpaid">Unpaid</option>
           <option value="Pending">Pending</option>
           <option value="Completed">Completed</option>
           <option value="Working">Working</option>
