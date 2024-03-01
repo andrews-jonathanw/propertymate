@@ -1,4 +1,3 @@
-import { FaDollarSign } from 'react-icons/fa';
 import CalendarIcons from './CalendarIcons';
 
 export default function CalendarDay({ generateDaysArray, isCurrentDay, alerts, currentDate }) {
@@ -22,7 +21,7 @@ export default function CalendarDay({ generateDaysArray, isCurrentDay, alerts, c
               {day !== '' ? day : null}
             </div>
             {day !== '' && (
-              <CalendarIcons alerts={alerts} day={day} />
+              <CalendarIcons alerts={alerts} day={day} currentDate={currentDate} />
             )}
           </div>
         </div>
