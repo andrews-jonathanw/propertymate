@@ -2,9 +2,23 @@
 import { useUser } from "../context/UserContext";
 import Image from "next/image";
 import Button from "../components/ui/Button";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
-  const { userType } = useUser(); // Using the useUser hook to access user context
+  const { userType, setUserType } = useUser();
+  const router = useRouter();
+
+  const handleTenantClick = () => {
+    setUserType("tenant");
+    localStorage.setItem("userType", "tenant");
+    router.push("/tenant/home");
+  };
+
+  const handleOwnerClick = () => {
+    setUserType("owner");
+    localStorage.setItem("userType", "owner");
+    router.push("/owner/home");
+  };
 
   return (
     <main className="flex flex-col items-center justify-between pt-4">
@@ -26,7 +40,7 @@ export default function Home() {
                 <li>Request Maintenance</li>
                 <li>Update Profile</li>
               </ul>
-              <Button onClick={() => alert("Redirect to Tenant Features")}>Explore Tenant Features</Button>
+              <Button className="my-2" onClick={handleTenantClick}>Explore Tenant Features</Button>
             </div>
             <div className="bg-white shadow-md rounded-lg p-6">
               <h3 className="text-xl font-semibold mb-2">For Owners</h3>
@@ -37,7 +51,7 @@ export default function Home() {
                 <li>View Documents</li>
                 <li>Handle Maintenance Requests</li>
               </ul>
-              <Button  onClick={() => alert("Redirect to Owner Features")}>Explore Owner Features</Button>
+              <Button className="my-2" onClick={handleOwnerClick}>Explore Owner Features</Button>
             </div>
           </div>
         </div>

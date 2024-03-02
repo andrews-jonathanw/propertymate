@@ -12,7 +12,7 @@ export default function LeaseIcons({ alert, index, currentYear, currentMonth, da
         expirationMonth === currentMonth &&
         expirationDay === day
       ) {
-        return <FaCalendarAlt key={index} className="text-yellow-500" />;
+        return <FaCalendarAlt key={index} className="text-yellow-500 w-[1rem] h-3 my-[.1rem]" />;
       }
     }
     if (alert.leaseStart) {
@@ -24,7 +24,7 @@ export default function LeaseIcons({ alert, index, currentYear, currentMonth, da
         startMonth === currentMonth &&
         startDay === day
       ) {
-        return <FaCalendarAlt key={index} className="text-blue-500" />;
+        return <FaCalendarAlt key={index} className="text-blue-500 w-[1rem] h-3" />;
       }
     }
   }
