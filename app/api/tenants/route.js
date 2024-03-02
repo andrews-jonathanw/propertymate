@@ -15,7 +15,7 @@ const tenants = [
   },
   {
     id: 102,
-    name: 'Emily Johnson',
+    name: 'Amy Farley',
     unit: 'Apt 103',
     location: 'City Heights Apartments',
     leaseStart: '2023-01-01',
@@ -46,6 +46,18 @@ const tenants = [
     leaseTerm: 12,
     rent: 5000,
     paymentDay: '6',
+    status: 'Unpaid'
+  },
+  {
+    id: 105,
+    name: 'Sarah Wilson',
+    unit: 'B',
+    location: 'Sunnyvale Duplex',
+    leaseStart: '2023-01-01',
+    leaseEnd: '2024-12-31',
+    leaseTerm: 12,
+    rent: 1100,
+    paymentDay: '9',
     status: 'Unpaid'
   }
 ];
