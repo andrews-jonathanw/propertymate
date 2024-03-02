@@ -80,7 +80,7 @@ export default function PropertyManagementPage() {
   });
 
   return (
-    <div className="flex flex-col items-center justify-center py-28 px-8">
+    <div className="flex flex-col items-center justify-center pt-4 px-8">
       {viewingProperty ? (
         <div className='w-full'>
         <PropertyViewer property={viewingProperty} onClose={() => {

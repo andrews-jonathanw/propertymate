@@ -48,7 +48,10 @@ export default function Menu({ showMenu, setShowMenu, userType, router, setUserT
                   router.push("/owner/properties");
                   setShowMenu(false);
                 }} icon={<FiFileText />}>Properties</Button>
-                <Button icon={<FiUsers />}>Tenants</Button>
+                <Button onClick={() => {
+                  router.push("/owner/tenants");
+                  setShowMenu(false);
+                }} icon={<FiUsers />}>Tenants</Button>
                 <Button onClick={() => {
                   router.push("/owner/documents");
                   setShowMenu(false);
