@@ -67,7 +67,7 @@ export default function Page() {
   }, [tenants, search]);
 
   return (
-    <div className='flex flex-col items-center justify-center pt-4 px-10 space-y-4'>
+    <div className='flex flex-col items-center justify-center p-4 px-10 space-y-4'>
       <TenantSearch setSearch={setSearch} />
       {loading ? (
         <p>Loading...</p>
