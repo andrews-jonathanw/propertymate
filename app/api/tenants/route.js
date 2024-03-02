@@ -1,4 +1,4 @@
-import {NextResponse} from 'next/server';
+import { NextResponse } from 'next/server';
 
 const tenants = [
   {
@@ -8,8 +8,10 @@ const tenants = [
     location: 'City Heights Apartments',
     leaseStart: '2023-01-01',
     leaseEnd: '2024-12-31',
+    leaseTerm: 12,
     rent: 1200,
-    status: 'Active'
+    paymentDay: '3',
+    status: 'Paid',
   },
   {
     id: 102,
@@ -18,8 +20,10 @@ const tenants = [
     location: 'City Heights Apartments',
     leaseStart: '2023-01-01',
     leaseEnd: '2024-12-31',
+    leaseTerm: 12,
     rent: 1500,
-    status: 'Active'
+    paymentDay: '14',
+    status: 'Missed Payment'
   },
   {
     id: 103,
@@ -29,7 +33,8 @@ const tenants = [
     leaseStart: '2023-01-01',
     leaseEnd: '2024-12-31',
     rent: 1800,
-    status: 'Active'
+    paymentDay: '18',
+    status: 'Unpaid'
   },
   {
     id: 104,
@@ -37,12 +42,44 @@ const tenants = [
     unit: null,
     location: 'Grand Victorian Mansion',
     leaseStart: '2023-01-01',
-    leaseEnd: '2024-12-31',
+    leaseEnd: '2025-12-31',
+    leaseTerm: 12,
     rent: 5000,
-    status: 'Active'
+    paymentDay: '6',
+    status: 'Unpaid'
   }
 ];
 
 export async function GET() {
-  return NextResponse.json({tenants});
+  const today = new Date();
+  const currentDay = today.getDate();
+  const currentMonth = today.getMonth() + 1;
+
+  tenants.forEach(tenant => {
+    const paymentDay = parseInt(tenant.paymentDay);
+    const status = getStatus(currentDay, currentMonth, paymentDay, tenant.status);
+    tenant.status = status;
+  });
+
+  return NextResponse.json({ tenants });
+}
+
+function getStatus(currentDay, currentMonth, paymentDay, currentStatus) {
+  if (currentStatus === 'Paid') {
+    if (currentDay <= paymentDay) {
+      return 'Paid';
+    } else {
+      return 'Missed Payment';
+    }
+  } else if (currentStatus === 'Unpaid') {
+    if (currentDay > paymentDay) {
+      return 'Missed Payment';
+    } else if (currentDay >= paymentDay - 7) {
+      return 'Unpaid';
+    } else {
+      return 'Paid';
+    }
+  } else {
+    return currentStatus;
+  }
 }
