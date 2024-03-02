@@ -160,8 +160,6 @@ const properties = [
   }
 ];
 
-
-
 export async function GET() {
   return NextResponse.json({properties});
 }
