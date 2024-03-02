@@ -3,7 +3,7 @@ import React from 'react'
 export default function Tenant({tenant}) {
   return (
     <div>
-      <div className='flex flex-row justify-between border-2 p-2'>
+      <div className='flex flex-row justify-between border-2 p-2 bg-customLight-accent'>
         <div>
           <p>{tenant.name}</p>
           <p>{tenant.unit}</p>
