@@ -31,7 +31,7 @@ export default function Page() {
   }, []);
 
   return (
-    <div className="pt-28 px-6 text-customLight-text">
+    <div className="pt-4 px-6 text-customLight-text">
       <h1 className="text-center font-extrabold">
         Currently viewing the Owner Home Page
       </h1>

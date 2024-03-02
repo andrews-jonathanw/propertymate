@@ -7,7 +7,7 @@ export default function Home() {
   const { userType } = useUser(); // Using the useUser hook to access user context
 
   return (
-    <main className="flex flex-col items-center justify-between my-20">
+    <main className="flex flex-col items-center justify-between pt-4">
         <div className="text-center">
           <h1 className="text-3xl font-bold mt-4">Welcome to PropertyMate</h1>
           <p className="text-lg text-gray-700 mt-2">
@@ -37,7 +37,7 @@ export default function Home() {
                 <li>View Documents</li>
                 <li>Handle Maintenance Requests</li>
               </ul>
-              <Button onClick={() => alert("Redirect to Owner Features")}>Explore Owner Features</Button>
+              <Button  onClick={() => alert("Redirect to Owner Features")}>Explore Owner Features</Button>
             </div>
           </div>
         </div>
@@ -45,8 +45,8 @@ export default function Home() {
           <h2 className="text-2xl font-semibold mb-4">Get Started</h2>
           <p className="text-gray-700 mb-4">Ready to get started? Sign up or log in to access PropertyMate's features:</p>
           <div className="flex gap-4">
-            <Button onClick={() => alert("Redirect to Sign Up page")}>Sign Up</Button>
-            <Button onClick={() => alert("Redirect to Log In page")}>Log In</Button>
+            <Button className='text-black' onClick={() => alert("Redirect to Sign Up page")}>Sign Up</Button>
+            <Button className='text-black' onClick={() => alert("Redirect to Log In page")}>Log In</Button>
           </div>
         </div>
     </main>

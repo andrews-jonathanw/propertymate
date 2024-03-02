@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Button from "../ui/Button";
+import Menu from "./Menu";
 
 export default function Navbar() {
   const router = useRouter();
@@ -18,36 +19,24 @@ export default function Navbar() {
   }, [userType]);
 
   return (
-    <div className="navBar sticky top-0 text-black">
-      <Container>
-        <div className="flex items-center justify-between">
+    <div className="navBar sticky top-0 text-white bg-customLight-primary">
+        <div className="flex items-center justify-between mx-6 ">
           <div className="flex items-center gap-1" onClick={() => router.push("/")}>
-            <Image
-              src="/assets/propertyMateLogo.jpeg"
-              alt="logo"
-              width={50}
-              height={50}
-              className="hover:cursor-pointer"
-              style={{
-                maxWidth: "100%",
-                height: "auto"
-              }} />
+            <div className="hover:cursor-pointer bg-transparent rounded-full flex items-center justify-center bg-customLight-primary">
+              <Image
+                src="/assets/lightLogo.png"
+                alt="logo"
+                width={70}
+                height={70}
+                style={{
+                  maxWidth: "100%",
+                  height: "auto",
+                }} />
+            </div>
             <div className="font-bold text-xl">PropertyMate</div>
           </div>
           <div className="flex items-center gap-3">
             <div>theme</div>
-            {userType === "owner" ? (
-              <Button onClick={() => {
-                setUserType("tenant");
-                router.push("/tenant/home");
-              }}>Tenant View</Button>
-            ) : (
-              <Button onClick={() => {
-                setUserType("owner");
-                router.push("/owner/home");
-              }}>Owner View</Button>
-            )}
-
             <button
               onClick={() => setShowMenu(!showMenu)}
               className="focus:outline-none"
@@ -78,48 +67,7 @@ export default function Navbar() {
             </button>
           </div>
         </div>
-        {showMenu && (
-          <div className="flex flex-col gap-2 bg-blue-50 mt-2">
-            {userType === "tenant" ? (
-              <>
-                <Button onClick={()=> {
-                  router.push("/tenant/home");
-                  setShowMenu(false);
-                }}>Home</Button>
-                <Button onClick={()=> {
-                  router.push("/tenant/documents");
-                  setShowMenu(false);
-                }}>Documents</Button>
-                <Button>Payments</Button>
-                <Button>Maintenance</Button>
-                <Button>Profile</Button>
-
-              </>
-            ) : (
-              <>
-                <Button onClick={()=> {
-                    router.push("/owner/home");
-                    setShowMenu(false);
-                  }}>Home</Button>
-                <Button onClick={()=> {
-                  router.push("/owner/properties");
-                  setShowMenu(false);
-                }}>Properties</Button>
-                <Button>Tenants</Button>
-                <Button onClick={()=> {
-                  router.push("/owner/documents");
-                  setShowMenu(false);
-                }}>Documents</Button>
-                <Button>Maintenance</Button>
-
-              </>
-            )}
-          </div>
-        )}
-      </Container>
+          {showMenu && <Menu userType={userType} showMenu={showMenu} setShowMenu={setShowMenu} router={router} setUserType={setUserType}/>}
     </div>
   );
 }
-
-
-
