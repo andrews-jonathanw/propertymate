@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Button from '../ui/Button';
 import Status from './Status';
 import { FiMail, FiMessageCircle, FiFileText, FiEdit } from 'react-icons/fi';
+import MobileMenu from './MobileMenu'; // Import MobileMenu component
 
 export default function Tenant({ tenant }) {
   const [expanded, setExpanded] = useState(false);
@@ -11,8 +12,8 @@ export default function Tenant({ tenant }) {
   };
 
   return (
-    <div className="rounded-lg border border-gray-300 bg-customLight-accent p-4 mb-4 cursor-pointer " onClick={toggleExpanded}>
-      <div className="flex flex-col md:flex-row md:justify-between md:items-start md:space-x-4">
+    <div className="relative rounded-lg border border-gray-300 bg-customLight-accent p-4 mb-4 ">
+      <div className="flex flex-col md:flex-row md:justify-between md:items-start md:space-x-4 w-full cursor-pointer" onClick={toggleExpanded}>
         <div className="md:mr-4 mb-2 md:mb-0">
           <h2 className="text-xl font-bold">{tenant.name}</h2>
           <div  className="">
@@ -24,7 +25,7 @@ export default function Tenant({ tenant }) {
             )}
             <Status status={tenant.status} paymentDate={tenant.paymentDay}/>
             {expanded && (
-              <div className="flex flex-wrap justify-between md:flex-nowrap md:space-x-2">
+              <div className="absolute top-0 right-0  flex-wrap justify-between md:flex-nowrap md:space-x-2 mt-4 md:flex hidden">
                 <Button className="px-1 py-1 mb-2 md:mb-0">
                   <div className='flex flex-row items-center'>
                     <FiMail className="mr-1" size={18} />
@@ -53,6 +54,8 @@ export default function Tenant({ tenant }) {
             )}
           </div>
         </div>
+        {/* Render the mobile menu */}
+        <MobileMenu tenant={tenant}/>
       </div>
       {expanded && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
