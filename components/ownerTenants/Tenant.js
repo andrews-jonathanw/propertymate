@@ -11,6 +11,10 @@ export default function Tenant({ tenant }) {
     setExpanded(!expanded);
   };
 
+  const handleButtonClick = (e) => {
+    e.stopPropagation(); // Stop click event propagation
+  };
+
   return (
     <div className="relative rounded-lg border border-gray-300 bg-customLight-accent p-4 mb-4 ">
       <div className="flex flex-col md:flex-row md:justify-between md:items-start md:space-x-4 w-full cursor-pointer" onClick={toggleExpanded}>
@@ -25,26 +29,26 @@ export default function Tenant({ tenant }) {
             )}
             <Status status={tenant.status} paymentDate={tenant.paymentDay}/>
             {expanded && (
-              <div className="absolute top-0 right-0  flex-wrap justify-between md:flex-nowrap md:space-x-2 mt-4 md:flex hidden">
-                <Button className="px-1 py-1 mb-2 md:mb-0">
+              <div className="absolute top-0 right-0  flex-wrap justify-between md:flex-nowrap md:space-x-2 mt-4 mr-2 md:flex hidden">
+                <Button className="px-1 py-1 mb-2 md:mb-0" onClick={handleButtonClick}>
                   <div className='flex flex-row items-center'>
                     <FiMail className="mr-1" size={18} />
                     Email
                   </div>
                 </Button>
-                <Button className="px-1 py-1 mb-2 md:mb-0">
+                <Button className="px-1 py-1 mb-2 md:mb-0" onClick={handleButtonClick}>
                   <div className='flex flex-row items-center'>
                     <FiMessageCircle className="mr-1" size={18} />
                     Messages
                   </div>
                 </Button>
-                <Button className="px-1 py-1 mb-2 md:mb-0">
+                <Button className="px-1 py-1 mb-2 md:mb-0" onClick={handleButtonClick}>
                   <div className='flex flex-row items-center'>
                     <FiFileText className="mr-1" size={18} />
                     Documents
                   </div>
                 </Button>
-                <Button className="px-1 py-1 mb-2 md:mb-0">
+                <Button className="px-1 py-1 mb-2 md:mb-0" onClick={handleButtonClick}>
                   <div className='flex flex-row items-center'>
                     <FiEdit className="mr-1" size={18} />
                     Edit
