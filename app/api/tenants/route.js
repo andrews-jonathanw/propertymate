@@ -4,6 +4,8 @@ const tenants = [
   {
     id: 101,
     name: 'John Smith',
+    phone: '555-555-5555',
+    email: 'johnsmith@propertymate.com',
     unit: 'Apt 101',
     location: 'City Heights Apartments',
     leaseStart: '2023-01-01',
@@ -16,6 +18,8 @@ const tenants = [
   {
     id: 102,
     name: 'Amy Farley',
+    phone: '555-555-5555',
+    email: 'amyfarley@propertymate.com',
     unit: 'Apt 103',
     location: 'City Heights Apartments',
     leaseStart: '2023-01-01',
@@ -28,6 +32,8 @@ const tenants = [
   {
     id: 103,
     name: 'Emily Johnson',
+    phone: '555-555-5555',
+    email: 'emilyjohnson@propertymate.com',
     unit: 'Unit A',
     location: 'Sunnyvale Duplex',
     leaseStart: '2023-01-01',
@@ -39,6 +45,8 @@ const tenants = [
   {
     id: 104,
     name: 'Michael Davis',
+    phone: '555-555-5555',
+    email: 'michaeldavis@propertymate.com',
     unit: null,
     location: 'Grand Victorian Mansion',
     leaseStart: '2023-01-01',
@@ -51,6 +59,8 @@ const tenants = [
   {
     id: 105,
     name: 'Sarah Wilson',
+    phone: '555-555-5555',
+    email: 'sarahwilson@propertymate.com',
     unit: 'B',
     location: 'Sunnyvale Duplex',
     leaseStart: '2023-01-01',

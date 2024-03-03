@@ -16,69 +16,92 @@ export default function Tenant({ tenant }) {
   };
 
   return (
-    <div className="relative rounded-lg border border-gray-300 bg-customLight-accent p-4 mb-4 ">
-      <div className="flex flex-col md:flex-row md:justify-between md:items-start md:space-x-4 w-full cursor-pointer" onClick={toggleExpanded}>
-        <div className="md:mr-4 mb-2 md:mb-0">
-          <h2 className="text-xl font-bold">{tenant.name}</h2>
-          <div  className="">
+    <div className="relative rounded-lg border border-gray-300 bg-white p-6 mb-6 shadow-lg hover:shadow-xl transition duration-300 hover:cursor-pointer" onClick={toggleExpanded}>
+      <div className="flex flex-col md:flex-row justify-between items-start space-y-4 md:space-y-0 md:space-x-6 ">
+        {/* Tenant Details */}
+        <div>
+          <h2 className="text-xl font-bold mb-2">{tenant.name}</h2>
+          <div className="space-y-2">
             {expanded && (
               <>
-                <p className="text-sm text-customLight-text mb-1">{tenant.unit}</p>
-                <p className="text-sm text-customLight-text mb-1">{tenant.location}</p>
+                <div className="flex flex-col space-y-1">
+                  <p className="text-sm font-semibold">Contact Details</p>
+                  <p className="text-sm">{tenant.phone}</p>
+                  <p className="text-sm">{tenant.email}</p>
+                </div>
+                <div className="flex flex-col space-y-1">
+                  <p className="text-sm font-semibold">Emergency Contact</p>
+                  <p className="text-sm">{tenant.emergencyContact}</p>
+                </div>
               </>
             )}
-            <Status status={tenant.status} paymentDate={tenant.paymentDay}/>
-            {expanded && (
-              <div className="absolute top-0 right-0  flex-wrap justify-between md:flex-nowrap md:space-x-2 mt-4 mr-2 md:flex hidden">
-                <Button className="px-1 py-1 mb-2 md:mb-0" onClick={handleButtonClick}>
-                  <div className='flex flex-row items-center'>
-                    <FiMail className="mr-1" size={18} />
-                    Email
-                  </div>
-                </Button>
-                <Button className="px-1 py-1 mb-2 md:mb-0" onClick={handleButtonClick}>
-                  <div className='flex flex-row items-center'>
-                    <FiMessageCircle className="mr-1" size={18} />
-                    Messages
-                  </div>
-                </Button>
-                <Button className="px-1 py-1 mb-2 md:mb-0" onClick={handleButtonClick}>
-                  <div className='flex flex-row items-center'>
-                    <FiFileText className="mr-1" size={18} />
-                    Documents
-                  </div>
-                </Button>
-                <Button className="px-1 py-1 mb-2 md:mb-0" onClick={handleButtonClick}>
-                  <div className='flex flex-row items-center'>
-                    <FiEdit className="mr-1" size={18} />
-                    Edit
-                  </div>
-                </Button>
-              </div>
-            )}
+            <Status status={tenant.status} paymentDate={tenant.paymentDay} />
           </div>
         </div>
-        {/* Render the mobile menu */}
-        <MobileMenu tenant={tenant}/>
+        {/* Lease Information */}
+        <div className="flex items-start">
+          <div className="flex flex-col md:flex-row items-start md:space-x-4">
+            {expanded && (
+              <div className="flex flex-col space-y-2">
+                <div className="flex flex-col space-y-1">
+                  <p className="text-sm font-semibold">Lease Details</p>
+                  <div className="flex flex-col space-y-1">
+                    <p className="text-sm"><span className="font-semibold">Start:</span> {tenant.leaseStart}</p>
+                    <p className="text-sm"><span className="font-semibold">End:</span> {tenant.leaseEnd}</p>
+                    <p className="text-sm"><span className="font-semibold">Term:</span> {tenant.leaseTerm} months</p>
+                  </div>
+                </div>
+                <div className="flex flex-col space-y-1">
+                  <p className="text-sm font-semibold">Rent Details</p>
+                  <div className="flex flex-col space-y-1">
+                    <p className="text-sm"><span className="font-semibold">Rent:</span> ${tenant.rent}</p>
+                    <p className="text-sm"><span className="font-semibold">Payment Day:</span> {tenant.paymentDay}</p>
+                  </div>
+                </div>
+                {tenant.animals && (
+                  <div className="flex flex-col space-y-1">
+                    <p className="text-sm font-semibold">Animals</p>
+                    <p className="text-sm">{tenant.animals}</p>
+                  </div>
+                )}
+              </div>
+            )}
+            {/* Status */}
+            <div className="flex flex-col space-y-2">
+              {expanded && (
+                <>
+                  <div className="flex flex-col space-y-1">
+                    <p className="text-sm font-semibold">Maintenance Requests:</p>
+                    <p className="text-sm">{tenant.maintenanceRequests}</p>
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
+          {/* Mobile Menu */}
+          <MobileMenu tenant={tenant} />
+        </div>
       </div>
+      {/* Action Buttons */}
       {expanded && (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-          <div>
-            <p className="text-sm font-semibold">Lease Start:</p>
-            <p className="text-sm">{tenant.leaseStart}</p>
-          </div>
-          <div>
-            <p className="text-sm font-semibold">Lease End:</p>
-            <p className="text-sm">{tenant.leaseEnd}</p>
-          </div>
-          <div>
-            <p className="text-sm font-semibold">Lease Term:</p>
-            <p className="text-sm">{tenant.leaseTerm} months</p>
-          </div>
-          <div>
-            <p className="text-sm font-semibold">Rent:</p>
-            <p className="text-sm">${tenant.rent}</p>
-            <p className="text-sm">Payment Day: {tenant.paymentDay}</p>
+        <div className="hidden md:flex justify-end mt-4">
+          <div className="flex flex-wrap gap-2">
+            <Button className="px-3 py-2 flex items-center space-x-2" onClick={handleButtonClick}>
+              <FiMail size={18} />
+              <span>Email</span>
+            </Button>
+            <Button className="px-3 py-2 flex items-center space-x-2" onClick={handleButtonClick}>
+              <FiMessageCircle size={18} />
+              <span>Messages</span>
+            </Button>
+            <Button className="px-3 py-2 flex items-center space-x-2" onClick={handleButtonClick}>
+              <FiFileText size={18} />
+              <span>Documents</span>
+            </Button>
+            <Button className="px-3 py-2 flex items-center space-x-2" onClick={handleButtonClick}>
+              <FiEdit size={18} />
+              <span>Edit</span>
+            </Button>
           </div>
         </div>
       )}
